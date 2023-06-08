@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Melancio🍉</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <section class="geral">
+  <h1>Criptografia e Descriptografia Melancio🍉</h1>
+  <h2>Dica: A descriptografia apenas é feita quando é inserida uma chave.</h2>
+<div class="container">
+  <div class="column">
+    <div class="box">
+      <label for="key-encrypt">Chave:</label>
+      <input type="text" id="key-encrypt" class="Chave">
+    </div>
+  </div>
+  <div class="column">
+    <div class="box">
+      <label for="original-message">Mensagem:</label>
+      <textarea id="original-message" class="textarea"></textarea>
+      <button onclick="encrypt()" class="botaoCrip">Criptografar</button>
+    </div>
+  </div>
+  <div class="column">
+    <div class="box">
+      <label for="encrypted-message">Mensagem Criptografada:</label>
+      <textarea class="textarea" id="encrypted-message"></textarea>
+      <button onclick="decrypt()" class="botaoDesc">Descriptografar</button>
+    </div>
+  </div>
+</div>
+</section>
+
+  <script>
+    function encrypt() {
+      const originalInput = document.getElementById("original-message");
+      const encryptedInput = document.getElementById("encrypted-message");
+      const keyInput = document.getElementById("key-encrypt");
+
+      const originalMessage = originalInput.value;
+      const encryptionKey = keyInput.value;
+
+      // Criptografando a mensagem com a chave fornecida
+      const encryptedMessage = CryptoJS.AES.encrypt(originalMessage, encryptionKey).toString();
+
+      // Atualizando o campo de mensagem criptografada
+      encryptedInput.value = encryptedMessage;
+    }
+
+    function decrypt() {
+      const originalInput = document.getElementById("original-message");
+      const encryptedInput = document.getElementById("encrypted-message");
+      const keyInput = document.getElementById("key-encrypt");
+
+      const encryptedMessage = encryptedInput.value;
+      const encryptionKey = keyInput.value;
+
+      // Descriptografando a mensagem com a chave fornecida
+      const decryptedBytes = CryptoJS.AES.decrypt(encryptedMessage, encryptionKey);
+      const decryptedMessage = decryptedBytes.toString(CryptoJS.enc.Utf8);
+
+      // Atualizando o campo de mensagem original
+      originalInput.value = decryptedMessage;
+    }
+  </script>
+</body>
+</html>
