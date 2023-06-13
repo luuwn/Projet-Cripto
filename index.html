@@ -4,35 +4,36 @@
   <title>Melancio🍉</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gemunu+Libre:wght@600&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
   <section class="geral">
-  <h1>Criptografia e Descriptografia Melancio🍉</h1>
-  <h2>Dica: A descriptografia apenas é feita quando é inserida uma chave.</h2>
-<div class="container">
-  <div class="column">
-    <div class="box">
-      <label for="key-encrypt">Chave:</label>
-      <input type="text" id="key-encrypt" class="Chave">
-    </div>
-  </div>
-  <div class="column">
-    <div class="box">
-      <label for="original-message">Mensagem:</label>
-      <textarea id="original-message" class="textarea"></textarea>
-      <button onclick="encrypt()" class="botaoCrip">Criptografar</button>
-    </div>
-  </div>
-  <div class="column">
-    <div class="box">
-      <label for="encrypted-message">Mensagem Criptografada:</label>
-      <textarea class="textarea" id="encrypted-message"></textarea>
-      <button onclick="decrypt()" class="botaoDesc">Descriptografar</button>
-    </div>
-  </div>
-</div>
-</section>
+    <h1>Criptografia e Descriptografia</h1>
+    <h2>Dica: A descriptografia apenas é feita quando é inserida uma chave.</h2>
+    
+      <div class="chave">
+        <label for="key-encrypt">Chave:</label>
+        <input type="text" id="key-encrypt" required>
+      </div>
+      <div class="column">
+        <div class="box">
+          <label for="original-message">Mensagem Original:</label>
+          <textarea id="original-message" class="textarea"></textarea>
+          <button onclick="encrypt()">Criptografar</button>
+        </div>
+        <span>=</span>
+        <div class="box">
+          <label for="encrypted-message">Mensagem Secreta:</label>
+          <textarea class="textarea" id="encrypted-message"></textarea>
+          <button onclick="decrypt()">Descriptografar</button>
+        </div>
+      </div>
+    
+  </section>
 
   <script>
     function encrypt() {
